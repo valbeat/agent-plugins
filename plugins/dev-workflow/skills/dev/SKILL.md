@@ -25,29 +25,15 @@ Issue `$ARGUMENTS` の実装を以下のステップで自律実行する。
 
 #### 1-2. コードベース調査
 
-Explore Agent を並列起動して調査:
-
-```
-subagent_type: Explore
-model: haiku
-prompt: |
-  以下の issue について、コードベースとの突合と既存パターン調査を行え。
-
-  ## issue
-  {issue 本文}
-
-  検証項目:
-  1. issue で言及されているファイル・関数が存在するか
-  2. 同じレイヤーの既存実装パターン（命名・構造・エラーハンドリング）
-  3. 関連するテストファイルの場所と構造
-  4. 影響範囲の特定
-
-  出力: 検証結果、関連ファイル一覧、参考既存実装パス
-```
+[共通の品質・停止条件](references/quality-contract.md) を先に読む。
+issue のファイル・関数の存在、既存の実装パターン、関連テスト、影響範囲を確認する。
+Claude Code の Agent / モデル指定を使う場合だけ
+[Claude Code の実行方法](references/claude-runtime.md) を読む。
+他の executor は利用可能な read/search/test ツールで同じ確認項目を実行する。
 
 #### 1-3. 統合
 
-Agent 結果を統合し、修正対象ファイル一覧を確定する。
+調査結果を統合し、修正対象ファイル一覧を確定する。
 
 **出力**: 仕様要約、修正対象ファイル一覧、参考既存実装パス
 
@@ -110,6 +96,8 @@ t-wada の TDD サイクルに従って実装:
 
 ### Step 5: 品質チェック
 
+[共通の品質・停止条件](references/quality-contract.md) に従い、実行環境の不足を検査失敗と区別する。
+
 プロジェクトの品質チェックを実行。コマンドは以下の優先順位で決定する:
 
 1. **プロジェクト定義のコマンドを最優先**: `package.json` の scripts、`Makefile` のターゲット、
@@ -128,6 +116,9 @@ t-wada の TDD サイクルに従って実装:
 ---
 
 ### Step 6: PR作成
+
+PR 本文には共通条件の成果記録（task / HEAD / 検証結果 / 証拠 / 未実施と再開条件）を含める。
+依頼範囲が未達の場合は issue を閉じず `Refs` にする。draft 作成はマージ済みを意味しない。
 
 ```bash
 git push -u origin HEAD

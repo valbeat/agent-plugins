@@ -12,7 +12,7 @@ Codex は `.agents/plugins/marketplace.json` を `.claude-plugin/marketplace.jso
 |---|---|---|
 | writing / design | 載せる | 文章・デザインの規範だけで、実行環境に依存しない |
 | git-workflow | 載せる | git / gh の手順が中心。fix-pr の AskUserQuestion は Codex では通常の質問になる |
-| dev-workflow | 載せない | spec / impl / dev がサブエージェントとモデル指定（Fable 等）を前提にしている |
+| dev-workflow | 載せない | dev の品質条件と Claude 起動手順は分離済み。spec / impl にはまだサブエージェントとモデル指定への依存がある |
 | skill-tools | 載せない | Claude Code のスキル（`~/.claude/skills`）と CLAUDE.md を扱う |
 
 ```shell
