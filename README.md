@@ -38,7 +38,7 @@ claude plugin install writing@valbeat-plugins
 
 | プラグイン | スキル | 説明 |
 |---|---|---|
-| `writing` | japanese-tech-writing, cognitive-rhythm-writing | 日本語技術文書の文章規範 — 整形・論証・認知リズム |
+| `writing` | japanese-tech-writing, cognitive-rhythm-writing, expression-bans | 日本語技術文書の文章規範 — 整形・論証・認知リズム。expression-bans は比喩の全面禁止などの禁止事項をまとめた上乗せ規範で、リポジトリが指定したときだけ使う |
 | `design` | design-guidelines, web-design-guidelines | 画像からのデザインガイドライン抽出、Web Interface Guidelines 準拠監査 |
 | `git-workflow` | commit, pr, update-pr, fix-pr, issue, dependabot-merge, four-keys | Git/GitHub ワークフロー — コミット、PR、issue、dependabot マージ、DORA メトリクス。`git` と `gh` が必要 |
 | `dev-workflow` | spec, impl, interview, dev, check | 仕様策定、TDD 実装、設計インタビュー、品質チェック |
