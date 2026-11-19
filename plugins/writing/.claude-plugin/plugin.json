@@ -1,7 +1,7 @@
 {
   "name": "writing",
   "description": "日本語技術文書の文章規範 — 整形・論証の厳密さ・認知リズムの設計・指定リポジトリ向けの表現の禁止事項",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "author": {
     "name": "valbeat"
   }
